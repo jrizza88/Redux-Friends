@@ -5,11 +5,11 @@ const Friends = props => {
     return (
         <div>
             {props.friends.map(friend => (
-               <li key={friend.id}>
+               <ul key={friend.id}>
                 Name: {friend.name},
                 Age: {friend.age},
                 Email: {friend.email}
-               </li>
+               </ul>
             ))}
         </div>
     );
