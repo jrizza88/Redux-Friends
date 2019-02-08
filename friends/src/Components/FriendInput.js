@@ -44,6 +44,11 @@ class FriendInput extends React.Component{
         // console.log('history props:', this.props.history.push(this.state.friend))
         // this.props.history.push(this.state.friend)
         this.props.storedFriends(newFriend)
+        this.setState({
+            name: '',
+            age: '',
+            email: '',
+        })
     }
 
     render() {
