@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {storedFriends} from '../Actions/Action';
+import styled from 'styled-components';
 
 class FriendInput extends React.Component{
     constructor(props){
@@ -15,7 +16,6 @@ class FriendInput extends React.Component{
 
     inputChange = e => {
         let reg = new RegExp('^[0-9]+$');
-        e.preventDefault();
         if (e.target.name === 'age') {
             if (!reg.test(e.target.value)){
                 this.setState({

@@ -4,6 +4,7 @@ import Friends from "../Components/Friends";
 import FriendInput from '../Components/FriendInput';
 // import { connect} from 'react-redux';
 import {fetchFriends, storedFriends} from '../Actions/Action.js';
+import styled from 'styled-components';
 
 class FriendListView extends React.Component{
 
