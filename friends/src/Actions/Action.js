@@ -53,7 +53,7 @@ import axios from 'axios';
     export const updateFriend = id => dispatch => {
         dispatch ({type: UPDATE_FRIEND})
         axios
-        .post(`http://localhost:5000/api/friends`, id)
+        .put(`http://localhost:5000/api/friends`, id)
         .then(res => {
             console.log("PUT request for FRIEND_UPDATED", res)
             dispatch({
@@ -65,6 +65,25 @@ import axios from 'axios';
             dispatch({
                 type: ERROR,
                 payload: error
+            });
+        });
+    }
+
+    export const deleteFriend = id => dispatch => {
+        dispatch ({type: DELETING_FRIEND})
+        axios
+        .delete(`http://localhost:5000/api/friends/${id}`)
+        .then(res => {
+            console.log("PUT request for FRIEND_UPDATED", res)
+            dispatch({
+                type: FRIEND_DELETED,
+                payload: res.data
+            })
+        })
+        .catch(error => {
+            dispatch({
+                type: ERROR,
+                payload: "Unable to delete friend"
             });
         });
     }
