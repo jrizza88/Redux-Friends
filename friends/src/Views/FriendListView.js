@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import Friends from "../Components/Friends"
+import Friends from "../Components/Friends";
+import FriendInput from '../Components/FriendInput';
 import {fetchFriends, storedFriends} from '../Actions/Action.js';
 
 class FriendListView extends React.Component{
@@ -17,6 +18,7 @@ class FriendListView extends React.Component{
         return (
             <div>
                 <Friends friends={this.props.friends} />
+                <FriendInput />
             </div>
         )
     }
