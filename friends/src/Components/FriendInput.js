@@ -8,41 +8,69 @@ class FriendInput extends React.Component{
         this.state = {
                 name: '',
                 age: '',
-                email: ''
+                email: '',
+                error: false
         }
     }
 
     inputChange = e => {
-        this.setState({ 
+        let reg = new RegExp('^[0-9]+$');
+        if (e.target.name === 'age') {
+            if (!reg.test(e.target.value)){
+                this.setState({
+                   error: !this.state.error, age:''
+                })
+                console.log("not number")
+            } else 
+            {this.setState({ 
                 [e.target.name]: e.target.value
-        })
+        })}
+        }
+       else 
+        {this.setState({ 
+                    [e.target.name]: e.target.value
+            })
+        }
     }
 
     addFriend = e => {
         e.preventDefault();
-
+    
         const newFriend = {
             name: this.state.name,
-            age: this.state.age,
+            age: Number(this.state.age),
             email: this.state.email
         }
-        // console.log(this.props.addFriend(e, this.state))
         // console.log('history props:', this.props.history.push(this.state.friend))
         // this.props.history.push(this.state.friend)
-        this.props.storedFriends(e, newFriend)
+        this.props.storedFriends(newFriend)
     }
 
     render() {
         return (
             <form onSubmit={this.addFriend}>
                 <label>Name</label>
-                <input type="text" name="name" placeholder="Name" onChange={this.inputChange} value={this.state.name}/>
+                <input type="text"
+                 name="name"
+                  placeholder="Name" 
+                  onChange={this.inputChange}
+                   value={this.state.name}/>
 
                 <label>Age</label>
-                <input type="text" name="age" placeholder="Age" onChange={this.inputChange} value={this.state.age}/>
+                <input type="text"
+                 name="age" 
+                 placeholder="Age" 
+                 onChange={this.inputChange} 
+                 value={this.state.age}/>
+               
 
                 <label>Email</label>
-                <input type="text" name="email" placeholder="Email" onChange={this.inputChange} value={this.state.email}/>
+                <input type="text" 
+                name="email" 
+                placeholder="Email" 
+                onChange={this.inputChange} 
+                value={this.state.email}/>
+
                 <button type="submit">Add Friend!</button>
             </form>
         )

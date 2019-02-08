@@ -26,10 +26,10 @@ import axios from 'axios';
         });
     }
 
-    export const storedFriends = () => dispatch => {
+    export const storedFriends = friends => dispatch => {
         dispatch ({type: SAVING_FRIENDS})
         axios
-        .post(`http://localhost:5000/api/friends`)
+        .post(`http://localhost:5000/api/friends`, friends)
         .then(res => {
             console.log("post request for SAVING_FRIENDS", res)
             dispatch({
@@ -40,7 +40,7 @@ import axios from 'axios';
         .catch(error => {
             dispatch({
                 type: ADD_FRIEND_ERROR,
-                payload: 'Fetching friends failed...'
+                payload: error
             });
         });
     }
