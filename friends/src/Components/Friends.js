@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 const Friends = props => {
     console.log("friend props", props)
@@ -18,5 +19,12 @@ const Friends = props => {
     );
 }
 
-export default Friends;
+const mstp = state => {
+    console.log(state)
+    return {
+        friends: state.friendRootReducer.friends,
+    }
+}
+
+export default connect(mstp, null)(Friends);
 
