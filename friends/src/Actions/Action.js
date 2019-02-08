@@ -74,7 +74,7 @@ import axios from 'axios';
         axios
         .delete(`http://localhost:5000/api/friends/${id}`)
         .then(res => {
-            console.log("PUT request for FRIEND_UPDATED", res)
+            console.log("Delete request", res)
             dispatch({
                 type: FRIEND_DELETED,
                 payload: res.data

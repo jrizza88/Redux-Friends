@@ -7,7 +7,7 @@ import {fetchFriends, storedFriends} from '../Actions/Action.js';
 
 class FriendListView extends React.Component{
 
-    componentDidMount(){
+    componentDidMount(e){
         this.props.fetchFriends()
     }
 
@@ -18,7 +18,6 @@ class FriendListView extends React.Component{
         }
         return (
             <div>
-                {/* <Friends friends={this.props.friends}/> */}
                 <Friends />
                 <FriendInput />
             </div>

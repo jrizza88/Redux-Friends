@@ -15,6 +15,7 @@ class FriendInput extends React.Component{
 
     inputChange = e => {
         let reg = new RegExp('^[0-9]+$');
+        e.preventDefault();
         if (e.target.name === 'age') {
             if (!reg.test(e.target.value)){
                 this.setState({
@@ -23,6 +24,7 @@ class FriendInput extends React.Component{
                 console.log("not number")
             } else 
             {this.setState({ 
+                
                 [e.target.name]: e.target.value
         })}
         }

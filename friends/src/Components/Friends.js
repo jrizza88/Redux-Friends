@@ -4,6 +4,7 @@ import {deleteFriend} from '../Actions/Action';
 
 const Friends = props => {
     console.log("friend props", props)
+    debugger
     if (!props.friends || !props.friends.length) {
         return <h1>No Friends... :/</h1>
     }
@@ -26,6 +27,11 @@ const mstp = state => {
     console.log(state)
     return {
         friends: state.friendRootReducer.friends,
+            fetchingFriends: state.friendRootReducer.fetchingFriends,
+            friendsFetched: state.friendRootReducer.friendsFetched,
+            friendsSaved: state.friendRootReducer.friendsSaved,
+            savingFriends: state.friendRootReducer.savingFriends,
+            error: state.friendRootReducer.error
     }
 }
 

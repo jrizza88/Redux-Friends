@@ -37,7 +37,7 @@ export const friendRootReducer = (state = initialState, action) => {
     case FETCHING_FRIENDS_ERROR: 
         return {...state, savingFriends: false, friends: action.payload, error: action.payload}
     case SAVING_FRIENDS: 
-        return {...state, savingFriends: true, friends: action.payload, error: ""}
+        return {...state, fetchingFriends: false, savingFriends: true, friends: action.payload, error: ""}
     case FRIENDS_SAVED: 
         return {...state, savingFriends: false, friends: action.payload, error: ""}
     case ADD_FRIEND_ERROR: 
@@ -49,7 +49,7 @@ export const friendRootReducer = (state = initialState, action) => {
     case DELETING_FRIEND:
         return{...state, deletingFriend: true, friends: [], error: ""}
     case FRIEND_DELETED: 
-        return{...state, friendFriend: false, friends: action.payload, error: ""}
+        return{...state, friendFriend: true, friends: action.payload, error: ""}
     case ERROR: 
         return{...state, fetchingFriends: false,
             friendsFetched: false,
